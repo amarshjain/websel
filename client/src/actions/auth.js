@@ -23,7 +23,6 @@ export const loadUser = () => async dispatch => {
             payload: res.data
         });
 
-        dispatch(loadUser());
 
     } catch (err) {
         dispatch({
