@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { addExp } from '../../actions/profile';
 
-const AddExp = props => {
+const AddExp = ({addExp, history}) => {
     const [formData, setFormData] = useState({
         company: '',
         title: '',
@@ -31,7 +31,10 @@ const AddExp = props => {
         positions that you have had in the past
       </p>
       <small>* = required field</small>
-      <form class="form">
+      <form class="form" onSubmit={e => {
+          e.preventDefault();
+          addExp(formData, history)
+      }}>
         <div class="form-group">
           <input type="text" placeholder="* Job Title" name="title" value={title} onChange={e => onChange(e)} required />
         </div>
