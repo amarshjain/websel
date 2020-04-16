@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import {Link, withRouter } from 'react-router-dom';
+import {withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { addExp } from '../../actions/profile';
@@ -78,4 +78,4 @@ AddExp.propTypes = {
     addExp: PropTypes.func.isRequired
 }
 
-export default connect(null , {addExp})(AddExp);
+export default connect(null , {addExp})(withRouter(AddExp));
