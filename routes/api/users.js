@@ -39,14 +39,11 @@ async (req, res) => {
         //     r: 'pg',
         //     d: 'mm'
         // });
-        const avatar = normalize(
-            gravatar.url(email, {
+        const avatar = gravatar.url(email, {
               s: '200',
               r: 'pg',
               d: 'mm'
-            }),
-            { forceHttps: true }
-          );
+            });
 
         user = new User({
             name,email,password,avatar
