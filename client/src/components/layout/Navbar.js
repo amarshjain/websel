@@ -11,7 +11,7 @@ const Navbar = ({auth:{isAuthenticated, loading}, logout}) => {
           <Link to='/profiles'><i class="fas fa-users"></i> Developers</Link>
         </li>
         <li>
-          <Link to='/posts'><i class="fas fa-users"></i> Posts</Link>
+          <Link to='/posts'><i class="fas fa-edit"></i> Posts</Link>
         </li>
         <li>
           <Link to='/dashboard'><i class="fas fa-user"></i> 
@@ -44,7 +44,7 @@ const Navbar = ({auth:{isAuthenticated, loading}, logout}) => {
         <nav className="navbar bg-dark">
       <h1>
           <Link to='/'>
-          <i class="fas fa-file-code"></i> Websel
+          <i class="fas fa-file-code"></i> WeBlogs
           </Link>
       </h1>
       {!loading && (<Fragment>

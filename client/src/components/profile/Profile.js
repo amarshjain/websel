@@ -44,9 +44,9 @@ const Profile = ({ match, getProfileById, profile: {profile, loading}, auth }) =
                         ) : (<h4>No experience credentials</h4>)}
                     </div>
 
-                    {profile.githubuname && (
+                    {/* {profile.githubuname && (
                         <ProfileGithub username={profile.githubuname} />
-                    )}
+                    )} */}
 
                 </div>
                 </Fragment>}
