@@ -13,7 +13,7 @@ const Landing = ({isAuthenticated}) => {
         <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
-          <h1 className="x-large"><i class="fas fa-file-code"></i> WebSel</h1>
+          <h1 className="x-large"><i class="fas fa-file-code"></i> WeBlogs</h1>
           <p className="lead">
             Create a developer profile/portfolio and connect to other developers, And sell and buy websites with complete backend
           </p>
