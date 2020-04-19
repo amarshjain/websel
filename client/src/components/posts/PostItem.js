@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
+import ReactMarkdown from 'react-markdown';
 import { addLike, removeLike, deletePost} from '../../actions/post';
 
 
@@ -21,7 +22,8 @@ const PostItem = ({addLike,deletePost, removeLike, auth, post: {_id, text, name,
           </div>
           <div>
             <p class="my-1">
-              {text}
+              
+              <ReactMarkdown source={text} />
               </p>
              <p class="post-date">
                 Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>
