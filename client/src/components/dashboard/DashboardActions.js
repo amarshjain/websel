@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DashboardActions = () => {
@@ -8,8 +8,6 @@ const DashboardActions = () => {
           ><i class="fas fa-user-circle text-primary"></i> Edit Profile</Link>
         <Link to="/add-exp" class="btn btn-light"
           ><i class="fab fa-black-tie text-primary"></i> Add Experience</Link>
-        <Link href="/post-web" class="btn btn-light"
-          ><i class="fas fa-code text-primary"></i> Post Website</Link>
       </div>
     )
 }

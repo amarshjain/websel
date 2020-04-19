@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import Spinner from '../layout/spinner';
 import DashboardActions from './DashboardActions';
 import Exp from './Exp';
+import MyProfile from './MyProfile';
 import {getCurrentProfile, deleteAccount} from '../../actions/profile';
 
 const Dashboard = ({getCurrentProfile, deleteAccount, auth: { user }, profile: {profile, loading}}) => {
@@ -18,6 +19,10 @@ const Dashboard = ({getCurrentProfile, deleteAccount, auth: { user }, profile: {
             <i className="fas fa-user"></i> Welcome {user && user.name}
         </p>
         {profile !== null ? (<Fragment>
+            <div class="bg-primary p">
+                <h3>Your Profile</h3>
+            </div>
+            <MyProfile />
             <DashboardActions />
             <Exp experience = {profile.experience} />
 
@@ -26,6 +31,7 @@ const Dashboard = ({getCurrentProfile, deleteAccount, auth: { user }, profile: {
                     <i className="fas fa-user-minus"></i> Delete My Account
                 </button>
             </div>
+            
 
         </Fragment>) :
          (<Fragment>
