@@ -3,9 +3,17 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
+import * as Showdown from "showdown";
+
 import ReactMarkdown from 'react-markdown';
 import { addLike, removeLike, deletePost} from '../../actions/post';
 
+const converter = new Showdown.Converter({
+  tables: true,
+  simplifiedAutoLink: true,
+  strikethrough: true,
+  tasklists: true
+});
 
 const PostItem = ({addLike,deletePost, removeLike, auth, post: {_id, text, name, avatar, user, likes, comments, date}, showActions}) => 
 
@@ -23,7 +31,8 @@ const PostItem = ({addLike,deletePost, removeLike, auth, post: {_id, text, name,
           <div>
             <p class="my-1">
               
-              <ReactMarkdown source={text} />
+              {/* <ReactMarkdown source={text.split("/n").join("<br>")} /> */}
+              <div dangerouslySetInnerHTML= {{__html: converter.makeHtml(text)}} />
               </p>
              <p class="post-date">
                 Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>

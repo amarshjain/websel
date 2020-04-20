@@ -14,7 +14,7 @@ const converter = new Showdown.Converter({
 });
 
 const PostForm = ({addPost}) => {
-    const [text, setText] = useState('');
+    let [text, setText] = useState('');
     const [selectedTab, setSelectedTab] = useState("write");
 
 
@@ -27,6 +27,8 @@ const PostForm = ({addPost}) => {
                 
         <form class="form my-1" onSubmit={e => {
             e.preventDefault();
+            // text= text.split("/n").join("<br>");
+            text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
             addPost({text});
             setText('');
         }}>
@@ -36,9 +38,10 @@ const PostForm = ({addPost}) => {
         selectedTab={selectedTab}
         onTabChange={setSelectedTab}
         generateMarkdownPreview={markdown =>
-          Promise.resolve(converter.makeHtml(markdown))
+          Promise.resolve(converter.makeHtml(markdown.replace(/(?:\r\n|\r|\n)/g, '<br>')))
         }
       />
+        
            
           {/* <textarea
             name="text"
@@ -50,6 +53,7 @@ const PostForm = ({addPost}) => {
             required
           ></textarea> */}
           <input type="submit" class="btn btn-dark my-1" value="Submit" />
+
         </form>
       </div>
     )
